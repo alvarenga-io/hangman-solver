@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forca — Prolog Solver</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+    <div id="tela-config">
+        <h1 class="titulo-jogo">Hangman Solver</h1>
+        <p class="subtitulo">Pense em uma palavra. Eu tento adivinhar.</p>
+
+        <div class="formulario-config">
+            <div class="campo">
+                <select name="categoria-real" id="categoria-real" style="display: none;">
+                    <option value="animal">Animal</option>
+                    <option value="fruta">Fruta</option>
+                    <option value="pais">País</option>
+                </select>
+                <div class="select-customizado">
+                    <div class="select-label">-- categoria --</div>
+                    <div class="select-opcoes">
+                        <div class="opcao" data-value="animal">Animal 🐾</div>
+                        <div class="opcao" data-value="fruta">Fruta 🍉</div>
+                        <div class="opcao" data-value="pais">País 🌍</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="input-tamanho">Nº de letras</label>
+                <input id="input-tamanho" type="number" min="2" max="30"
+                       placeholder="ex: 4">
+            </div>
+
+            <button id="btn-iniciar">Iniciar</button>
+        </div>
+
+        <!-- Mensagem de erro de configuração (oculta por padrão) -->
+        <p id="erro-config" class="erro-texto"></p>
+    </div>
+
+            <!-- Painel esquerdo: forca + palavra + meta -->
+        <section id="output">
+           
+
+            <!-- Imagem da forca (estágio controlado via classe CSS) -->
+            <div id="imagem" class="forca-estagio-0"></div>
+           
+
+            <!-- Letras erradas já tentadas -->
+            <div id="letras-erradas-container">
+                <span class="label-erradas">Erradas:</span>
+                <div id="letras-erradas">
+                    <!-- <span class="letra-errada"> gerados pelo app.js -->
+                </div>
+            </div>
+
+            <!-- Quantas palavras candidatas restam -->
+            <div id="contador-candidatos">-- palavras candidatas</div>
+        </section>
+
+        <!-- Painel direito: interação com o motor Prolog -->
+        <section id="input">
+             <div id="categoria"><!-- preenchido pelo app.js --></div>
+              <div id="palavra-secreta">
+                <!-- <span class="letras-secretas"> gerados pelo app.js -->
+            </div>
+            <!-- Balão com a letra sugerida pelo Prolog -->
+            <div id="balao-letra">
+                <p>A letra é <span id="letra-destaque">?</span> está na palavra?</p>
+                
+            </div>
+
+            <!-- Grid de botões de posição (gerado dinamicamente pelo app.js) -->
+            <div id="grid-posicoes">
+                <!-- <button class="btn-posicao"> gerados pelo app.js -->
+            </div>
+            <p class="hint-posicoes">
+                Se sim, clique nas posições em que a letra aparece.
+            </p>
+
+            <!-- Botões de resposta -->
+            <div id="feedback">
+                <div id="linha-resposta">
+                    <button id="btn-sim"  disabled>✓ Sim</button>
+                    <button id="btn-nao"  disabled>X Não</button>
+                    <button id="btnReiniciar">⟳ Reiniciar</button>
+                </div>
+            </div>
+
+            <!-- Mensagem de status / avisos inline -->
+            <p id="mensagem-status"></p>
+
+        </section>
+    
+    </main>
+
+    <div id="tela-fim" class="escondido fim-container">
+        <h2 id="titulo-fim">Fim de jogo</h2>
+        <p  id="mensagem-fim"></p>
+        <button id="btn-reiniciar-fim" onclick="reiniciar()">
+            🎮 Jogar Novamente
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

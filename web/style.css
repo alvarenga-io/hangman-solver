@@ -1,0 +1,221 @@
+@font-face {
+    font-family: Chalk;
+    src: url(font/Chalk.otf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: Chalkiez;
+    src: url(font/Chalkiez-Regular.otf);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* #tela-config {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+body {
+    color: aliceblue;
+    width: 100vw;
+    height: 90vh;
+    background-image: url(../imagens/dark-texture-chalk-board-and-black-board-background-photo.webp);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    /* font-family:"Quicksand", sans-serif; */
+    font-family: Chalkiez;
+    font-size: 1.2em;
+}
+
+body h1 {
+    margin: 10px 0px;
+}
+body p {
+    margin: 5px 0px;
+}
+body button {
+    color: #e2eaf0;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    padding: 12px 32px;
+    display: inline-block;
+    font-family: Chalkiez, cursive;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.5s ease;
+}
+
+
+
+.campo {
+    display: inline-block;
+  position: relative;
+  font-family: Chalkzie, cursive;
+}
+.select-label {
+  font-size: 0.7em;  
+  background: #30363e;
+  color: white;
+  padding: 10px;
+  border: 2px solid whitesmoke;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+/* caixa da lista suspensa */
+.select-opcoes {
+    font-size: 0.7em;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #252b35; 
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: none; /* Escondido por padrão */
+  z-index: 10;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+}
+.opcao {
+  color: white;
+  padding: 12px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.opcao:hover {
+  background: #3b82f6;
+}
+
+/* Classe para mostrar a lista via JavaScript */
+.select-customizado.aberto .select-opcoes {
+  display: block;
+}
+#input-tamanho {
+    font-family: inherit;
+    color: whitesmoke;
+    appearance: none;
+    background: transparent;
+    border: 1px inset whitesmoke ;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 8px 20px;
+    border: 2px solid whitesmoke;
+    border-radius: 25px;
+    width: 80px; /* Largura compacta ideal para números curtos */
+    text-align: center; /* Centraliza o número digitado */
+    outline: none; /* Remove a borda padrão do navegador ao focar */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#input-tamanho::-webkit-outer-spin-button, #input-tamanho::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+#input button {
+    color: #e2eaf0;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    padding: 6px 16px;
+    display: inline-block;
+    font-family: Chalkiez, cursive;
+    font-size: 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.5s ease;
+}
+#input button:hover{
+    background-color: whitesmoke;
+    color: #252b35;
+}
+#input button.ativa {
+    background-color: whitesmoke;
+    color: #252b35;
+}
+button#btn-iniciar {
+    margin: 4px 20px;
+}
+div#imagem {
+    background-image: url(../imagens/man.PNG);
+    background-size: cover;
+    width: 234px;
+    height: 300px;
+    background-repeat: no-repeat;
+}
+#palavra-secreta{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    margin-top: 30px;
+}
+
+.letras-secretas{
+    width: 16px;
+    text-align: center;
+    border-bottom: 2px solid #ab99ab;
+    margin: 6px;
+
+}
+#letra-destaque {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+#categoria {
+    margin: 10px;
+    font-size: 1.2em;
+    
+}
+
+.escondido {
+    display: none !important;
+}
+
+
+@media (min-width: 768px){
+    main {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "header header"
+    "esquerda direita"
+    "bottom bottom";
+    gap: 15px; 
+    min-height: fit-content;
+    width: 800px;
+    }
+    #tela-config {
+        grid-area: header;
+        text-align: center;
+
+    }
+    #output {
+        grid-area: esquerda;
+        align-self: end;
+    }
+    #input {
+        grid-area: direita;
+        align-self: end;
+    }
+    #tela-fim {
+        grid-area: bottom;
+        text-align: center;
+    }
+}

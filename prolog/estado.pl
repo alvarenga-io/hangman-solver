@@ -29,8 +29,7 @@ iniciar_jogo(Categoria, Tamanho) :-
 
     % 3 - Cria o estado inicla na memória temporária
 
-    length(Padrao, Tamanho), %Criar uma lista chamada Padrao com todos os elementos de comprimento igual à "Tamanho" .
-    maplist (=(_),Padrao), %O maplist força todos os elementos na linha a serem _ 
+    length(Padrao, Tamanho), %Criar uma lista chamada Padrao de tamanho 4 com todos os elementos vazios .
 
     assertz(categoria(Categoria)), %Transporta o valor Categoria informado pelo usuário para dentro do predicado categoria () criado na memória
     assertz(tamanho(Tamanho)),

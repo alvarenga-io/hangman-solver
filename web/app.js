@@ -403,7 +403,7 @@ function desabilitarResposta() {
 }
 
 // ---------------------------------------------------------------------------
-//  Mensagens de erro / status
+// Mensagens de erro / status
 // ---------------------------------------------------------------------------
 
 function mostrarErroConfig(msg) {

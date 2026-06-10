@@ -149,11 +149,37 @@ button#btn-iniciar {
     margin: 4px 20px;
 }
 div#imagem {
-    background-image: url(../imagens/man.PNG);
     background-size: cover;
     width: 234px;
     height: 300px;
     background-repeat: no-repeat;
+}
+.forca-estagio-6 {
+    background-image: url(imagens/man06.PNG);
+}
+
+.forca-estagio-5 {
+    background-image: url(imagens/man05.PNG);
+}
+
+.forca-estagio-4 {
+    background-image: url(imagens/man04.PNG);
+}
+
+.forca-estagio-3 {
+    background-image: url(imagens/man03.PNG);
+}
+
+.forca-estagio-2 {
+    background-image: url(imagens/man02.PNG);
+}
+
+.forca-estagio-1 {
+    background-image: url(imagens/man01.PNG);
+}
+
+.forca-estagio-0 {
+    background-image: url(imagens/man.PNG);
 }
 #palavra-secreta{
     display: flex;

@@ -10,8 +10,7 @@
 % proxima_letra(-Letra)
 %   Escolhe a próxima letra a ser tentada de acordo maior frequência no conjunto de candidatos atuais,
 %   excluindo letras já tentadas.
-% ---------------------------------------------------------------------------
-
+%
 proxima_letra(Letra) :-
     candidatos(Candidatos),
     tentadas(Tentadas),
@@ -20,13 +19,10 @@ proxima_letra(Letra) :-
     msort(Freq, FreqOrd),        % ordena crescente por contagem
     last(FreqOrd, _-Letra), !.  % pega a de maior contagem
 
-% ---------------------------------------------------------------------------
 % contar_frequencias(+Candidatos, +Tentadas, -FreqOrdenada)
 %   FreqOrdenada: lista de pares Contagem-Letra, para letras com Contagem > 0.
+
 %
-%   Exemplo: contar_frequencias([gato,rato], [r], Freq)
-%            Freq = [1-g, 1-t, 1-o, 2-a]   (valores ilustrativos)
-% 
 
 contar_frequencias(Candidatos, Tentadas, FreqOrdenada) :-
     atom_chars(abcdefghijklmnopqrstuvwxyz, Alfabeto),
@@ -47,16 +43,17 @@ contar_frequencias(Candidatos, Tentadas, FreqOrdenada) :-
 verificar_estado(Resultado) :-
     padrao(Padrao),
     (   \+ member('_', Padrao)
-    ->  % Padrão totalmente revelado — reconstruímos a palavra
+    ->  % Padrão foi totalmente revelado 
         atom_chars(Palavra, Padrao),
         Resultado = ganhou(Palavra)
     ;   candidatos([Palavra])
-    ->  % Resta exatamente um candidato — já sabemos a resposta
+    ->  % Resta exatamente um candidato
         Resultado = ganhou(Palavra)
     ;   candidatos([])
-    ->  % Nenhum candidato: o usuário informou posições inconsistentes
+    ->  % Nenhum candidato: o usuário informou posições incorretas
         Resultado = impossivel
     ;   vidas(0)
     ->  Resultado = perdeu
     ;   Resultado = continua
     ).
+

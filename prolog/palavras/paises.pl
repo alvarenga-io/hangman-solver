@@ -1,4 +1,4 @@
-:- multifile palavra/2.
+:- multifile palavra/2. % Permite que as cláusulas de um mesmo predicado sejam definidas em diversos arquivos de origem
 
 palavra(pais, afeganistao).
 palavra(pais, africa_do_sul).

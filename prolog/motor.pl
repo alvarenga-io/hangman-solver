@@ -9,14 +9,11 @@
 :- use_module(library(apply)).
 :- ensure_loaded('estado').
 
-% ---------------------------------------------------------------------------
 % filtrar_candidatos(+Letra, +Posicoes)
 %   Letra  : char atom, ex: 'a'
 %   Posicoes: lista de inteiros 1-based, ex: [2, 4]
 %
-%   Mantém apenas as palavras em que Letra aparece EXATAMENTE nas Posicoes
-%   informadas (nem mais, nem menos).
-% ---------------------------------------------------------------------------
+%  
 
 filtrar_candidatos(Letra, Posicoes) :-
     candidatos(Lista),
@@ -62,12 +59,9 @@ contem_letra(Letra, Palavra) :-
     atom_chars(Palavra, Chars),
     member(Letra, Chars).
 
-% ---------------------------------------------------------------------------
+
 % atualizar_padrao(+Letra, +Posicoes)
-%   Preenche as posições reveladas no padrão visível.
-%
-%   Exemplo: padrao=[_,_,_,_], atualizar_padrao(a,[2,4]) → [_,a,_,a]
-% ---------------------------------------------------------------------------
+
 
 atualizar_padrao(Letra, Posicoes) :-
     retract(padrao(PadraoAntigo)),

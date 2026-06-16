@@ -8,16 +8,15 @@
 :- ensure_loaded('palavras/frutas').
 :- ensure_loaded('palavras/paises').
 
-% ---------------------------------------------------------------------------
+% 
 % Predicados dinâmicos — representam o estado atual da partida
-% ---------------------------------------------------------------------------
 
-:- dynamic categoria/1.   % átomo: animal | fruta | pais
-:- dynamic tamanho/1.     % inteiro: número de letras da palavra
-:- dynamic candidatos/1.  % lista de átomos: palavras ainda possíveis
-:- dynamic tentadas/1.    % lista de átomos (chars): letras já sugeridas
-:- dynamic padrao/1.      % lista de chars/átomos: letras reveladas ou '_'
-:- dynamic vidas/1.       % inteiro 0-6: tentativas restantes
+:- dynamic categoria/1.   
+:- dynamic tamanho/1.     
+:- dynamic candidatos/1. 
+:- dynamic tentadas/1.    
+:- dynamic padrao/1.      
+:- dynamic vidas/1.      
 
 % iniciar_jogo(+Categoria, +Tamanho)
 

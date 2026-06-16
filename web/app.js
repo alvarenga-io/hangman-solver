@@ -36,7 +36,6 @@ const els = {
   btnSim:           () => document.getElementById("btn-sim"),
   btnNao:           () => document.getElementById("btn-nao"),
   mensagemStatus:   () => document.getElementById("mensagem-status"),
-  letrasSecretas:   () => document.getElementsByClassName("letras-secretas"),
 
   // Seção de fim de jogo
   telaFim:          () => document.getElementById("tela-fim"),
@@ -296,17 +295,8 @@ function reiniciar() {
   els.btnIniciar().disabled = false;
   els.btnIniciar().textContent = "Iniciar";
   els.inputTamanho().value = "";
-  
-  for (const letra of els.letrasSecretas()) {
-    letra.textContent = "";
-  }
-
-  els.contadorCands().textContent = `-- palavras candidatas`;
-
-  els.letrasErradas().textContent = "";
   ui.letraAtual = null;
   ui.posicoesAtivadas.clear();
-  els.imagem().className = `forca-estagio-0`;
   mostrarTela("configuracao");
 }
 
